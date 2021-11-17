@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Repository\MovieRepositoryInterface;
+use App\Jobs\GetMovieTitles;
 
 class MovieController extends Controller
 {
@@ -28,6 +29,7 @@ class MovieController extends Controller
      */
     public function getTitles(Request $request): JsonResponse
     {
+        //GetMovieTitles::dispatch($validatedData);
         // TODO
         $fooTitles = $this->movieRepository->getFooTitles();
 
@@ -43,6 +45,9 @@ class MovieController extends Controller
             foreach ($bazTitles['titles'] as $key => $value) {
                 $combinedTitles[] = $value;
             }
+        }
+        if(empty($fooTitles) || empty($bazTitles) || empty($barTitles)) {
+            $combinedTitles = [   "status" =>  "failure"];
         }
         return response()->json([$combinedTitles]);
     }

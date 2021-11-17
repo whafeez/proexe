@@ -30,7 +30,9 @@ class MovieRepository extends BaseRepository implements MovieRepositoryInterface
             $fooMovies = new FooMovieService();
             $titles = $fooMovies->getTitles();
         } catch (\Exception $e) {
-            if($e->getMessage == "ServiceUnavailableException") {
+                        
+
+            if($e->getMessage() == "Service unavailable") {
                 //ddd
                 $titles = [];
             }
@@ -45,7 +47,8 @@ class MovieRepository extends BaseRepository implements MovieRepositoryInterface
             $barMovies = new BarMovieService();
             $titles = $barMovies->getTitles();
         } catch (\Exception $e) {
-            if($e->getMessage == "ServiceUnavailableException") {
+            
+            if($e->getMessage() == "Service unavailable") {
                 //ddd
                 $titles = [];
             }
@@ -60,7 +63,9 @@ class MovieRepository extends BaseRepository implements MovieRepositoryInterface
             $bazMovies = new BazMovieService();
             $titles = $bazMovies->getTitles();
         } catch (\Exception $e) {
-            if($e->getMessage() == "ServiceUnavailableException") {
+                            
+
+            if($e->getMessage() == "Service unavailable") {
                 //ddd
                 $titles = [];
             }
