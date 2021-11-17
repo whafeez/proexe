@@ -1,4 +1,4 @@
-# Laravel/Lumen Docker Scaffold
+# Proexe Interview Test
 
 ### **Description**
 
@@ -54,16 +54,7 @@ This will create a dockerized stack for a Laravel/Lumen application, consisted o
 
     ```
     $ docker exec -it app bash
-    $ composer create-project --prefer-dist laravel/laravel .
-    $ nano .env
-    $ php artisan migrate --seed
-    ```
-
-    **Lumen**
-
-    ```
-    $ docker exec -it app bash
-    $ composer create-project --prefer-dist laravel/lumen .
+    $ composer install
     $ nano .env
     $ php artisan migrate --seed
     ```
